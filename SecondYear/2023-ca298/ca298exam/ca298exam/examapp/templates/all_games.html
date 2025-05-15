@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+    <style>
+        .game-card {
+            margin-bottom: 20px;
+        }
+
+        .game-card .card-body {
+            padding: 20px;
+        }
+
+        .game-card .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .game-card .card-text {
+            color: #6c757d;
+        }
+
+        .scrollable-container {
+            max-height: 12500px;
+            overflow-y: auto;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mb-4">All Games</h1>
+        <div class="row">
+            {% for game in games %}
+                <div class="col-md-4">
+                    <div class="card game-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ game.name }}</h5>
+                            <p class="card-text"><strong>Genre:</strong> {{ game.genre }}</p>
+                            <p class="card-text"><strong>Platform:</strong> {{ game.platform }}</p>
+                            <p class="card-text"><strong>Price:</strong> €{{ game.price }}</p>
+                            <a href="{% url 'game_detail' game.id %}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <h2 class="mb-4">View Games by Console</h2>
+        <div class="scrollable-container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card game-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'console_games' 'XBOX' %}">Xbox</a></h5>
+                            <p class="card-text">Explore games for Xbox</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card game-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'console_games' 'PS5' %}">PlayStation</a></h5>
+                            <p class="card-text">Discover games for PlayStation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card game-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'console_games' 'SWITCH' %}">Nintendo</a></h5>
+                            <p class="card-text">Browse games for Nintendo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

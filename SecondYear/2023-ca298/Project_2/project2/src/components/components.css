@@ -1,0 +1,261 @@
+/* Home Page */
+.Home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Home-Container {
+    text-align: center;
+}
+
+/* Footer */
+.Footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.Content {
+    padding-bottom: 100px;
+}
+
+/* Cohorts Page */
+.Cohorts-Title {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+}
+
+.Cohorts-Card-Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.Cohorts-Cards {
+    width: 20rem;
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Cohorts-Cards .card-header {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.Cohorts-Cards .card-body {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.Cohorts-Cards .btn-primary {
+    background-color: #FFA500;
+    border-color: #FFA500;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.Cohorts-Cards .btn-primary:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+.Cohorts-Cards .btn-secondary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.Cohorts-Cards .btn-secondary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Cohort Modules Page */
+.Cohort-Modules-Title {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.Cohort-Modules-Card-Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.Cohort-Modules-Cards {
+    width: 20rem;
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+}
+
+.Cohort-Modules-Cards .btn-primary {
+    background-color: #FFA500;
+    border-color: #FFA500;
+    color: #fff;
+}
+
+.Cohort-Modules-Cards .btn-primary:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+.custom-card {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #FFA500;
+    border-color: #FFA500;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+.btn-secondary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Degrees Page */
+.Degrees-Title {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+}
+
+.Degrees-Card-Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.Degrees-Cards {
+    width: 20rem;
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Degrees-Cards .card-header {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.Degrees-Cards .card-body {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.Degrees-Cards .btn-primary {
+    background-color: #FFA500;
+    border-color: #FFA500;
+    color: #fff;
+}
+
+.Degrees-Cards .btn-primary:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+/* Modules Page */
+.Modules-Title {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+}
+
+.Modules-Card-Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.Modules-Card {
+    width: 20rem;
+    background-color: #FFA500;
+    border: 1px solid #FFA500;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.Modules-Link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.Modules-Card:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+/* Single Cohort Page Styles */
+
+.Student-Card {
+    width: 300px;
+    margin-bottom: 20px;
+    background-color: #FF8C00;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Student-Name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.Student-Email {
+    color: #555;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exercise 3</title>
+</head>
+<body>
+    <form id="myForm" onsubmit="submitForm(event)">
+        <label for="nameInput">Enter your name: </label>
+        <input type="text" id="nameInput" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            let name = document.getElementById("nameInput").value;
+            if (name.trim() === "") {
+                alert("Name cannot be blank!");
+            } else {
+                let p = document.createElement("p");
+                p.textContent = "Hello " + name;
+                document.body.appendChild(p);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+services:
+  web:
+    image: "httpd:latest"
+    ports:
+      - "8000:80"

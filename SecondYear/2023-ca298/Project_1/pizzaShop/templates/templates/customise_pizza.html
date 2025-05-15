@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Create Pizza
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-light shadow-lg">
+                    <div class="card-body custom-card-bg">
+                        <h2 class="card-title text-center mb-4 text-danger">Create Your Pizza</h2>
+                        <form action="." method="POST">
+                            {% csrf_token %}
+                            <div class="col">
+                                {{ form.as_p }}
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block mt-4">Add Pizza</button>
+                        </form>
+                        <div class="mt-3 text-center">
+                            <a href="{% url 'payment' %}" class="btn btn-secondary">Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .card {
+            border: none;
+            border-radius: 25px;
+            background-color: transparent; 
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+        }
+
+        .custom-card-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); 
+            padding: 20px; 
+        }
+
+        .card-body {
+            padding: 20px; 
+        }
+
+        .card-title {
+            color: #dc3545; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+        }
+
+        .btn-danger {
+            background-color: #dc3545; 
+            border-color: #dc3545; 
+            font-size: 18px; 
+        }
+
+        .btn-secondary {
+            background-color: #6c757d; 
+            border-color: #6c757d; 
+            font-size: 18px; 
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130; 
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+    <style>
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .jumbotron h3 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .jumbotron p {
+            color: #495057;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h3>Welcome to Ca298 Exam App</h3>
+            <p>This is the homepage of the Ca298 exam app.</p>
+            <p>Abul Hasan Sheik Madhar Ali</p>
+            <p>22390436</p>
+        </div>
+    </div>
+{% endblock %}

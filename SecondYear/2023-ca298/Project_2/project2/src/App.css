@@ -1,0 +1,6 @@
+.App {
+  background-color: #f0f0f0; /* Light gray background */
+  min-height: 100vh;
+  align-items: center;
+  color: #333; /* Dark text color */
+}

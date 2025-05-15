@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .navbar {
+            background-color: #007bff; 
+            padding: 1rem 2rem;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff; 
+        }
+
+        .navbar-toggler {
+            color: #fff;
+            border-color: #fff; 
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff; 
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            font-size: 1.4rem; 
+            color: #fff !important; 
+            margin: 0 1rem;
+            transition: background-color 0.3s, color 0.3s; 
+            padding: 0.7rem 1.5rem; 
+            border-radius: 10px; 
+            background-color: rgba(255, 255, 255, 0.1); 
+        }
+
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ffd700 !important; 
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+
+        .footer {
+            background-color: #007bff; 
+            color: #fff; 
+            padding: 0.1rem 2rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        body {
+            margin-bottom: 50px; 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+    </style>
+        {% block extra_css %}
+        {% endblock %}
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">Game Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{% url 'all_games' %}">All Games</a>
+                {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                        <a class="nav-link" href="{% url 'add_game' %}">Add Game</a>
+                    {% endif %}
+                    <a class="nav-link" href="{% url 'basket_view' %}">Basket</a>
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+{% block content %}
+{% endblock %}
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2024 Game Shop. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-KoAh16cT+yKuSQRHEzoD+Nehbg3Wj6b7cDWCXcWMrre85VhYUwVJQCIU5nFT2b1d" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-n8RYtR3NH/eh8fy2GmPWvU7Q6Z2gg+uUM4P6cH/E5f9c7TD8wSrJpKxC66wwqphx" crossorigin="anonymous"></script>
+
+</body>
+</html>

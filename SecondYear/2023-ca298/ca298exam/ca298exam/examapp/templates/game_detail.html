@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ game.name }}</h1>
+                        <p class="card-text">Description: {{ game.description }}</p>
+                        <p class="card-text">Platform: {{ game.platform }}</p>
+                        <p class="card-text">Genre: {{ game.genre }}</p>
+                        <p class="card-text">Price: €{{ game.price }}</p>
+                        <p class="card-text">Stock: {{ game.stock }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Add to Basket</h2>
+                        <form method="post" action="{% url 'add_to_basket' game.id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" class="form-control" min="1" max="{{ game.stock }}">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add to Basket</button>
+                        </form>
+                        {% if error_message %}
+                            <p class="text-danger">{{ error_message }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<style>
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table tbody+tbody {
+        border-top: 2px solid #dee2e6;
+    }
+
+    .table-sm th,
+    .table-sm td {
+        padding: 0.3rem;
+    }
+
+    .table-bordered {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-bordered thead th,
+    .table-bordered thead td {
+        border-bottom-width: 2px;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+
+    .table-primary,
+    .table-primary>th,
+    .table-primary>td {
+        background-color: #b8daff;
+    }
+
+    .table-hover .table-primary:hover {
+        background-color: #9fcdff;
+    }
+
+    .table-hover .table-primary:hover>td,
+    .table-hover .table-primary:hover>th {
+        background-color: #9fcdff;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Your Shopping Basket</h1>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in basket_items %}
+                <tr>
+                    <td>{{ item.game.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>€{{ item.game.price }}</td>
+                    <td>€{{ item.total_price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="fw-bold">Total Price:</td>
+                    <td class="fw-bold">{{ total_price }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock %}

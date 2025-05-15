@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+    <p>FizzBuzz Problem</p>
+    <ul>
+		{% for num in x %}
+
+            {% if num|divisibleby:"3" and num|divisibleby:"5" %}
+                <li>fizzbuzz</li><br>
+            
+            {% elif num|divisibleby:"3" %}
+                <li>Fizz</li><br>
+            
+            {% elif num|divisibleby:"5" %}
+                <li>Buzz</li><br>
+            
+            {% else %}
+                <li>{{ num }}</li><br>
+            
+            {% endif %}
+
+	    {% endfor %}
+   </ul>
+{% endblock %}

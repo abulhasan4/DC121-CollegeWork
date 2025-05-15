@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exercise 5</title>
+</head>
+<body>
+    <script>
+        fetch("https://swapi.dev/api/planets/1")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Name: " + data.name);
+            console.log("Diameter: " + data.diameter);
+            console.log("Climate: " + data.climate);
+            console.log("Terrain: " + data.terrain);
+            console.log("Population: " + data.population);
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- The api doesn't work -->

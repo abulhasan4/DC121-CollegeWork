@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Order Details
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-light shadow">
+                    <div class="card-body custom-card-bg">
+                        {% if order %}
+                            <h2>Your Order Details</h2>
+                            <p><span class="detail-label">Order Name:</span> {{ order.name }}</p>
+                            <p><span class="detail-label">Delivery Address:</span> {{ order.address }}</p>
+                            <p><span class="detail-label">Expected Delivery Time:</span> {{ order.expected_delivery_time }}</p>
+                            <ul>
+                                {% for order_detail in order_details %}
+                                    <li>
+                                        <span class="detail-label">Pizza:</span> {{ order_detail.pizza.size }} - {{ order_detail.pizza.crust }}<br>
+                                        <span class="detail-label">Toppings:</span>
+                                        {% for topping in order_detail.pizza.toppings.all %}
+                                            {{ topping.name }}
+                                        {% endfor %}<br>
+                                        <span class="detail-label">Quantity:</span> {{ order_detail.quantity }}<br>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No orders found.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .custom-card-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png') !important;
+            background-size: cover;
+            background-position: center;
+            padding: 40px; 
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #dc3545; 
+        }
+    </style>
+{% endblock %}
+

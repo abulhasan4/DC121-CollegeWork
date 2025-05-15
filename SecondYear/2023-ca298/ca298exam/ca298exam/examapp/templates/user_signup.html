@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    User Signup
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            margin-top: 20px;
+        }
+
+        .form-container button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>User Signup</h2>
+
+        {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Error! </strong> Please correct the following errors:
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        
+        <form action="." method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                <small id="usernameHelp" class="form-text text-muted">Choose a unique username.</small>
+            </div>
+            <div class="mb-3">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="mb-3">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+            </div>
+            <div class="mb-3">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+{% endblock %}
+

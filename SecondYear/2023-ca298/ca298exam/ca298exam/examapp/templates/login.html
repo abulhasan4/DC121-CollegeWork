@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            margin-top: 20px;
+        }
+
+        .form-container button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .form-container .mb-3 {
+            margin-bottom: 20px;
+        }
+
+        .form-container .form-text {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>User Login</h2>
+
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Error! </strong> Please correct the following errors:
+                    <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    </ul>
+            </div>
+                        {% endif %}
+        <form action="." method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div class="mb-3">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+{% endblock %}
+

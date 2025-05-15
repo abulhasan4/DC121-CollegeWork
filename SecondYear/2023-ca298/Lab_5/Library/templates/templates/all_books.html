@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+{% for b in books %}
+<div><br></div>
+    <div class="card text-bg-primary mb-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Title : {{ b.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Author :{{b.author }}</h6>
+          <p class="card-text"> Price : €{{b.price }}</p>
+          <a href="{% url 'single_book' bookid=b.id %}" class="card-link" style="color: black; text-decoration: underline;">More Information</a>
+        </div>
+      </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Add Game
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .card-container {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 22px); /* Adjusted width to fit within card */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: calc(100% - 22px); /* Adjusted width to fit within card */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            resize: vertical; /* Allow vertical resizing */
+            max-height: 200px; /* Limit maximum height */
+        }
+
+        button[type="submit"] {
+            width: calc(100% - 22px); /* Adjusted width to fit within card */
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="card-container">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Add Game</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="id_name">Name:</label>
+                    {{ form.name }}
+                    <label for="id_description">Description:</label>
+                    {{ form.description }}
+                    <label for="id_platform">Platform:</label>
+                    {{ form.platform }}
+                    <label for="id_genre">Genre:</label>
+                    {{ form.genre }}
+                    <label for="id_price">Price:</label>
+                    {{ form.price }}
+                    <label for="id_stock">Stock:</label>
+                    {{ form.stock }}
+                    <button type="submit">Add Game</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Order
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-light shadow-lg">
+                    <div class="card-body custom-card-bg">
+                        <h2 class="card-title text-center mb-4 text-danger">Place Your Order</h2>
+                        
+                        {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Error!</strong> Please correct the following errors:
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        
+                        <form action="." method="POST">
+                            {% csrf_token %}
+                            <div class="col">
+                                <div class="mb-3">
+                                    {{ form.name.label_tag }}
+                                    {{ form.name }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.address.label_tag }}
+                                    {{ form.address }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.cardholder_name.label_tag }}
+                                    {{ form.cardholder_name }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.card.label_tag }}
+                                    {{ form.card }}
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        {{ form.expiry_month.label_tag }}
+                                        <div class="input-group">
+                                            {{ form.expiry_month }}
+                                            <span class="input-group-text">MM</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        {{ form.expiry_year.label_tag }}
+                                        <div class="input-group">
+                                            {{ form.expiry_year }}
+                                            <span class="input-group-text">YY</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.cvv.label_tag }}
+                                    <div class="input-group">
+                                        {{ form.cvv }}
+                                        <span class="input-group-text">CVV</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block mt-4">Submit Order</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .card {
+            border: none;
+            border-radius: 25px;
+            background-color: transparent;
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+        }
+
+        .custom-card-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png') !important;
+            padding: 20px; 
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            color: #dc3545;
+            font-size: 24px; 
+            margin-bottom: 20px; 
+        }
+
+        .btn-danger {
+            background-color: #dc3545; 
+            border-color: #dc3545; 
+            font-size: 18px; 
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333; 
+            border-color: #bd2130;
+        }
+
+        .input-group-text {
+            background-color: #f8f9fa; 
+            border-color: #ced4da; 
+            color: #495057; 
+            font-weight: bold;
+        }
+
+        .input-group input {
+            border-radius: 5px;
+            width: 80px; 
+        }
+
+        .input-group {
+            width: 100%;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb; 
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem; 
+            border: 1px solid transparent; 
+            border-radius: 0.25rem;
+        }
+    </style>
+{% endblock extra_css %}
