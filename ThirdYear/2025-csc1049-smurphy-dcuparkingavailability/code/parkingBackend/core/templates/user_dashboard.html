@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    User Dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card bg-light shadow">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Welcome to Your Dashboard</h2>
+
+                        <p>Welcome, {{ user.username }}! Here are your details:</p>
+                        <ul>
+                            <li><strong>Email:</strong> {{ user.email }}</li>
+                            <li><strong>Vehicle Registration Number:</strong> {{ user.vehicleRegNumber }}</li>
+                        </ul>
+
+                        <h4>Your Parking Information:</h4>
+                        <ul>
+                            <li><strong>Reserved Parking:</strong> {{ reserved_parking }}</li>
+                            <li><strong>Current Parking Status:</strong> {{ parking_status }}</li>
+                        </ul>
+
+                        <div class="mt-4">
+                            <a href="" class="btn btn-primary">Edit Profile</a>
+                            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .card {
+            border: none;
+            border-radius: 15px;
+            background-color: #f8d7da;
+        }
+
+        .card-body {
+            padding: 40px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+    </style>
+{% endblock %}

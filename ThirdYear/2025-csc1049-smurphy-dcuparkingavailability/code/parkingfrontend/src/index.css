@@ -1,0 +1,37 @@
+.navbar {
+  background-color: #ff6347;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #fff;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-link {
+  font-size: 1.4rem;
+  color: #fff !important;
+  margin: 0 1rem;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover {
+  color: #ffd700 !important;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer {
+  background-color: #ff6347;
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
